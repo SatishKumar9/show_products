@@ -1,0 +1,21 @@
+{% extends 'vendor/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {#    <div class="login">#}
+    {#        <div class="login_module">#}
+    {#            <div class="module form-module">#}
+    {#                <div class="toggle">#}
+    {#                </div>#}
+    {#                <div class="form">#}
+    {#                    <h2>Add a Product</h2>#}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {#                        <br>#}
+        <input type="submit" value="Add"><br>
+    </form>
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+{% endblock %}

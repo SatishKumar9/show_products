@@ -1,0 +1,34 @@
+{% autoescape off %}
+    Hi {{ user.username }}
+    <table border="3">
+        <tr>
+            <th>s.no</th>
+            <th>product</th>
+            <th>quantity</th>
+            <th>price</th>
+        </tr>
+        {% for item in ordre.get_cart_item %}
+
+            <tr>
+                <td>   {{ forloop.counter }}   </td>
+                <td>   {{ item }}  </td>
+                <td>{{ item.qty }}</td>
+                <td> ₹{{ item.product.cost }}    </td>
+
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3">Total</td>
+            <td>{{ total }}</td>
+        </tr>
+    </table>
+    <br>
+
+    <h4>Your shipping address is {{ address }}</h4>
+    <h4>Your order reference id is {{ ref_code }}</h4>
+
+    <a href="http://127.0.0.1:8000/customer/QrCode/{{ ordre.id }}/" download="{{ ordre }}">Download QrCode</a><br>
+    <a href="http://127.0.0.1:8000/customer/home">
+        <button>Thank you for shopping with us</button>
+    </a>
+{% endautoescape %}

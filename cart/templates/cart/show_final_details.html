@@ -1,0 +1,12 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+    <h3>Your order has been successfully placed</h3><br>
+    <h4>Address {{ address }}</h4><br>
+    <h4>Phone number {{ phone_number }}</h4><br>
+    <h4>Your reference code is {{ ref_code }}</h4><br>
+
+    <h4>We will send you an email shortly confirming you order<br>
+        Thank you for shopping with us</h4>
+
+{% endblock %}

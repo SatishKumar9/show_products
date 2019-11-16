@@ -1,0 +1,9 @@
+{% load custom_filters %}
+
+{% autoescape off %}
+    An order has been placed by the user {{ user }}
+    The items are as follows
+    {% for item in items %}
+        Item name :{{ item | get_item_name }}, qty is :{{ item | get_item_qty }}
+    {% endfor %}
+{% endautoescape %}

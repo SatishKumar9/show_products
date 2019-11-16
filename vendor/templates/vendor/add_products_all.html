@@ -1,0 +1,12 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <a href="{% url 'vendor:add_product_existing' %}" target="_blank" class="d-inline-block m-3">
+            <button type="button" class="btn btn-success d-inline-block">Add an existing product</button>
+        </a>
+        <a href="{% url 'vendor:add_product_new' %}" target="_blank" class="d-inline-block m-3">
+            <button type="button" class="btn btn-success d-inline-block">Add a new product</button>
+        </a>
+    </div>
+{% endblock %}

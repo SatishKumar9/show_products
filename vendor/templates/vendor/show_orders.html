@@ -1,0 +1,59 @@
+{% extends 'vendor/base.html' %}
+{% load customer_filters %}
+{% block content %}
+
+<ol>
+{% if user.is_authenticated %}
+    <table border="5" class="table table-hover table-bordered text-center">
+    <thead class="thead-dark">
+    <tr class="text-center">
+        <th>Customer name: <br></th>
+        <th> Customer address: <br></th>
+        <th>Customer phone number: <br></th>
+        <th>Order id: <br></th>
+        <th></th>
+    </tr>
+    </thead>
+{% for order in orders %}
+
+
+    <tr class="text-center">
+        <th><b>{{ order.owner }}</b><br></th>
+        <th><b>{{ order.owner.address }}</b><br></th>
+        <th><b>{{ order.owner.phone_number }}</b><br></th>
+        <th><b>{{ order.ref_code }}</b><br></th>
+<th>
+    <b>
+    <table border="5" class="table table-hover table-bordered text-center">
+    <thead class="thead-dark"><tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+
+    </tr></thead>
+    {% for item in order.item.all %}
+
+        {% for vendor in item.vendor.all %}
+
+            {% if user == vendor %}
+                <tr>
+                    <th>{{ item.product }}</th>
+                    <th>{{ item.qty }}</th>
+                    <th>{% multiply item.product.cost item.qty %}</th>
+                </tr>
+            {% endif %}
+
+        {% endfor %}
+    {% endfor %}
+    </table>
+    </b>
+</th>
+    <br>
+
+    <br>
+    </tr>
+{% endfor %}
+    </table>
+</ol>
+{% endif %}
+{% endblock %}

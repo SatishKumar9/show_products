@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>List of all Tournaments</h1>
+{% for tournament in tournaments %}
+    {{ tournament.name }}<br>
+    {{ tournament.description }}<br>
+    <h3><a href="{% url 'customer:join_tournament' tournament.id %}"> Click here to join a tournament</a></h3>
+{% endfor %}
+<br>
+</body>
+</html>
